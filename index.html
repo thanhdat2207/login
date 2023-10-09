@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="script.js" defer></script>
+</head>
+<style>
+  video {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  opacity: 0.9;
+}
+  @media (min-width:768px) {
+    .header-dark {
+      padding-bottom:120px;
+    }
+  }
+  
+  .header-dark .navbar {
+    background:transparent;
+    padding-top:0;
+    padding-bottom:0;
+    color:#fff;
+    border-radius:0;
+    box-shadow:none;
+    border:none;
+  }
+  
+  @media (min-width:768px) {
+    .header-dark .navbar {
+      padding-top:.75rem;
+      padding-bottom:.75rem;
+    }
+  }
+  
+  .header-dark .navbar .navbar-brand {
+    font-weight:bold;
+    color:inherit;
+    font-size: 40px;
+  }
+  
+  .header-dark .navbar .navbar-brand:hover {
+    color:#f0f0f0;
+  }
+  
+  .header-dark .navbar .navbar-collapse span {
+    margin-top:5px;
+  }
+  
+  .header-dark .navbar .navbar-collapse span .login {
+    color:#d9d9d9;
+    margin-right:.5rem;
+    text-decoration:none;
+  }
+  
+  .header-dark .navbar .navbar-collapse span .login:hover {
+    color:#fff;
+  }
+  
+  .header-dark .navbar .navbar-toggler {
+    border-color:#747474;
+  }
+  
+  .header-dark .navbar .navbar-toggler:hover, .header-dark .navbar-toggler:focus {
+    background:none;
+  }
+  
+  .header-dark .navbar .navbar-toggler {
+    color:#eee;
+  }
+  
+  .header-dark .navbar .navbar-collapse, .header-dark .navbar .form-inline {
+    border-color:#636363;
+  }
+  
+  @media (min-width: 992px) {
+    .header-dark .navbar.navbar .navbar-nav .nav-link {
+      padding-left:1.2rem;
+      padding-right:1.2rem;
+    }
+  }
+  
+  .header-dark .navbar.navbar-dark .navbar-nav .nav-link {
+    color:#d9d9d9;
+  }
+  
+  .header-dark .navbar.navbar-dark .navbar-nav .nav-link:focus, .header-dark .navbar.navbar-dark .navbar-nav .nav-link:hover {
+    color:#fcfeff !important;
+    background-color:transparent;
+  }
+  
+  .header-dark .navbar .navbar-nav > li > .dropdown-menu {
+    margin-top:-5px;
+    box-shadow:0 4px 8px rgba(0,0,0,.1);
+    background-color:#fff;
+    border-radius:2px;
+  }
+  
+  .header-dark .navbar .dropdown-menu .dropdown-item:focus, .header-dark .navbar .dropdown-menu .dropdown-item {
+    line-height:2;
+    font-size:14px;
+    color:#37434d;
+  }
+  
+  .header-dark .navbar .dropdown-menu .dropdown-item:focus, .header-dark .navbar .dropdown-menu .drodown-item:hover {
+    background:#ebeff1;
+  }
+  
+  .header-dark .navbar .action-button, .header-dark .navbar .action-button:active {
+    background:#208f8f;
+    border-radius:20px;
+    font-size:inherit;
+    color:#fff;
+    box-shadow:none;
+    border:none;
+    text-shadow:none;
+    padding:.5rem .8rem;
+    transition:background-color 0.25s;
+  }
+  
+  .header-dark .navbar .action-button:hover {
+    background:#269d9d;
+  }
+  
+  .header-dark .navbar .form-inline label {
+    color:#ccc;
+  }
+  
+  .header-dark .navbar .form-inline .search-field {
+    display:inline-block;
+    width:80%;
+    background:none;
+    border:none;
+    border-bottom:1px solid transparent;
+    border-radius:0;
+    color:#ccc;
+    box-shadow:none;
+    color:inherit;
+    transition:border-bottom-color 0.3s;
+  }
+  
+  .header-dark .navbar .form-inline .search-field:focus {
+    border-bottom:1px solid #ccc;
+  }
+  
+  .header-dark .hero {
+    margin-top:60px;
+  }
+  
+  @media (min-width:768px) {
+    .header-dark .hero {
+      margin-top:20px;
+    }
+  }
+  
+  .header-dark .hero h1 {
+    color:#fff;
+    font-family:'Bitter', serif;
+    font-size:40px;
+    margin-top:20px;
+    margin-bottom:80px;
+    font-weight:bold;
+    font-style:italic;
+  }
+  
+  @media (min-width:768px) {
+    .header-dark .hero h1 {
+      margin-bottom:50px;
+      line-height:1.5;
+    }
+  }
+  
+  .header-dark .hero .embed-responsive iframe {
+    background-color:#666;
+  }
+  /* Importing Google font - Open Sans */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+
+.navbar .close-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    display: none;
+    color: #000;
+    cursor: pointer;
+}
+
+
+
+.navbar .login-btn {
+    border: none;
+    outline: none;
+    background: #fff;
+    color: #275360;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+
+.navbar .login-btn:hover {
+    background: #ddd;
+}
+
+.form-popup {
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    z-index: 10;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    max-width: 720px;
+    background: #fff;
+    border: 2px solid #fff;
+    transform: translate(-50%, -70%);
+}
+
+.show-popup .form-popup {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease, opacity 0.1s;
+}
+
+.form-popup .close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: #878484;
+    cursor: pointer;
+}
+
+.blur-bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: 0.1s ease;
+}
+
+.show-popup .blur-bg-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.form-popup .form-box {
+    display: flex;
+}
+
+.form-box .form-details {
+    width: 100%;
+    color: #fff;
+    max-width: 330px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login .form-details {
+    padding: 0 40px;
+    background: url("background_login.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.signup .form-details {
+    padding: 0 20px;
+    background: url("background_login.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.form-box .form-content {
+    width: 100%;
+    padding: 35px;
+}
+
+.form-box h2 {
+    text-align: center;
+    
+    margin-bottom: 29px;
+    font-style: bold;
+}
+
+form .input-field {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.input-field input {
+    height: 100%;
+    width: 100%;
+    background: none;
+    outline: none;
+    font-size: 0.95rem;
+    padding: 0 15px;
+    border: 1px solid #717171;
+    border-radius: 3px;
+}
+
+.input-field input:focus {
+    border: 1px solid #00bcd4;
+}
+
+.input-field label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #4a4646;
+    pointer-events: none;
+    transition: 0.2s ease;
+}
+
+.input-field input:is(:focus, :valid) {
+    padding: 16px 15px 0;
+}
+
+.input-field input:is(:focus, :valid)~label {
+    transform: translateY(-120%);
+    color: #00bcd4;
+    font-size: 0.75rem;
+}
+
+.form-box a {
+    color: #00bcd4;
+    text-decoration: none;
+}
+
+.form-box a:hover {
+    text-decoration: underline;
+}
+
+form :where(.forgot-pass-link, .policy-text) {
+    display: inline-flex;
+    margin-top: 13px;
+    font-size: 0.95rem;
+}
+
+form button {
+    width: 100%;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 14px 0;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 25px 0;
+    background: #00bcd4;
+    transition: 0.2s ease;
+}
+
+form button:hover {
+    background: #0097a7;
+}
+
+.form-content .bottom-link {
+    text-align: center;
+}
+
+.form-popup .signup,
+.form-popup.show-signup .login {
+    display: none;
+}
+
+.form-popup.show-signup .signup {
+    display: flex;
+}
+
+.signup .policy-text {
+    display: flex;
+    margin-top: 14px;
+    align-items: center;
+}
+
+.signup .policy-text input {
+    width: 14px;
+    height: 14px;
+    margin-right: 7px;
+}
+
+@media (max-width: 950px) {
+    .navbar :is(.hamburger-btn, .close-btn) {
+        display: block;
+    }
+
+    .navbar {
+        padding: 15px 0;
+    }
+
+    .navbar .logo img {
+        display: none;
+    }
+
+    .navbar .logo h2 {
+        font-size: 1.4rem;
+    }
+
+    .navbar .links {
+        position: fixed;
+        top: 0;
+        z-index: 10;
+        left: -100%;
+        display: block;
+        height: 100vh;
+        width: 100%;
+        padding-top: 60px;
+        text-align: center;
+        background: #fff;
+        transition: 0.2s ease;
+    }
+
+    .navbar .links.show-menu {
+        left: 0;
+    }
+
+    .navbar .links a {
+        display: inline-flex;
+        margin: 20px 0;
+        font-size: 1.2rem;
+        color: #000;
+    }
+
+    .navbar .links a:hover {
+        color: #00BCD4;
+    }
+
+    .navbar .login-btn {
+        font-size: 0.9rem;
+        padding: 7px 10px;
+    }
+}
+
+@media (max-width: 760px) {
+    .form-popup {
+        width: 95%;
+    }
+
+    .form-box .form-details {
+        display: none;
+    }
+
+    .form-box .form-content {
+        padding: 30px 20px;
+    }
+}
+</style>
+<body>
+  <video playsinline autoplay muted loop>
+    <source src="polina.webm" type="video/webm">
+    <source src="Background2.webm" type="video/mp4">
+  </video>
+    <div>
+        <div class="header-dark">
+            <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
+                <div class="container"><a class="navbar-brand" href="#">CQT211 - CLASS</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse"
+                        id="navcol-1">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">Trang chủ</a></li>
+                            <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Đội Ngũ</a>
+                                <div class="dropdown-menu" role="menu">
+                                  <a class="dropdown-item" role="presentation" href="cvcanhan_ThaiThanhDat.html">Thái Thành Đạt</a>
+                                  <a class="dropdown-item" role="presentation" href="#">TV02</a>
+                                  <a class="dropdown-item" role="presentation" href="#">TV03</a>
+                                  <a class="dropdown-item" role="presentation" href="#">TV04</a>
+                                  <a class="dropdown-item" role="presentation" href="#">TV05</a>
+                                  <a class="dropdown-item" role="presentation" href="#">TV06</a>
+                                  <a class="dropdown-item" role="presentation" href="#">TV07</a>
+                                  <a class="dropdown-item" role="presentation" href="#">TV08</a></div>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="#">Hỗ Trợ</a></li>
+                            </li>
+                        </ul>
+                        <form class="form-inline mr-auto" target="_self">
+                            <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" name="search" id="search-field"></div>
+                        </form><span class="navbar-text"><button class="login-btn">ĐĂNG NHẬP</button></div>
+                </div>
+            </nav>
+            <div class="container hero" >
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <h1 class="text-center">CLASS OF BASIC SCIENCE</h1><div class="embed-responsive embed-responsive-16by9">
+                          <video id="myvideo" playsinline autoplay muted loop>
+                          <source src="democlass.mp4">
+                          <style>
+                            #myvideo{
+                              border-radius:10% ;
+                              opacity: 0.8;
+                            }
+                          </style>
+                        </video></div>
+                      </div>
+                        <div class="blur-bg-overlay"></div>
+                        <div class="form-popup">
+                          <span class="close-btn material-symbols-rounded">close</span>
+                          <div class="form-box login">
+                              <div class="form-details">
+                                  <h2>CHÀO MỪNG</h2>
+                                  <p>Vui lòng đăng nhập bằng thông tin cá nhân của bạn để duy trì kết nối với chúng tôi.</p>
+                              </div>
+                              <div class="form-content">
+                                  <h2>Đăng Nhập</h2>
+                                  <form action="#">
+                                      <div class="input-field">
+                                          <input type="text" required>
+                                          <label> Tên đăng nhập ! </label>
+                                      </div>
+                                      <div class="input-field">
+                                          <input type="password" required>
+                                          <label> Mật khẩu </label>
+                                      </div>
+                                      <a href="#" class="forgot-pass-link"> Quên mật khẩu?</a>
+                                      <button type="submit">Đăng nhập </button>
+                                  </form>
+                                  <div class="bottom-link">
+                                      Không có tài khoản?
+                                      <a href="#" id="signup-link">Đăng Ký</a>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="form-box signup" >
+                            <div class="form-details">
+                                <h2> Tạo Tài Khoản </h2>
+                                <p>Để trở thành một phần của lớp chúng tôi, vui lòng đăng ký bằng thông tin cá nhân của bạn.</p>
+                            </div>
+                            <div class="form-content">
+                                <h2> Đăng Ký </h2>
+                                <form action="#">
+                                  <div class="input-field">
+                                    <input type="text" required>
+                                    <label>Tên đăng nhập</label>
+                                  </div>
+                                    
+                                    <div class="input-field">
+                                        <input type="password" required>
+                                        <label>Mật khẩu</label>
+                                    </div>
+                                    <div class="input-field">
+                                      <input type="text" required>
+                                      <label>Nhập địa chỉ email</label>
+                                  </div>
+                                    <div class="policy-text">
+                                        <input type="checkbox" id="policy">
+                                        <label for="policy">
+                                            Tôi đồng ý
+                                            <a href="#" class="option"> Điều khoản & Điều kiện</a>
+                                        </label>
+                                    </div>
+                                    <button type="submit">Đăng Ký</button>
+                                </form>
+                                <div class="bottom-link">
+                                    Bạn đã có tài khoản? 
+                                    <a href="#" id="login-link">Đăng Nhập</a>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div>
+            
+        </div>
+    </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
